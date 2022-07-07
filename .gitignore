@@ -25,3 +25,5 @@ setup.bat
 
 # Files from Forge MDK
 forge*changelog.txt
+/secrets.properties
+/publish.bat
