@@ -85,17 +85,45 @@ jar {
     }
 }
 
+def secrets = new Properties()
+file('secrets.properties').withInputStream {
+    stream -> secrets.load(stream)
+}
+
+fileTree("secrets").matching {
+    include "**/*.properties"
+}.each {
+    File file ->
+        file.withInputStream {
+            stream -> secrets.load(stream)
+        }
+}
+
 jar.finalizedBy('reobfJar')
 
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            artifact jar
+            afterEvaluate {
+                artifact project.jar
+                artifact project.sourceJar
+            }
+            setGroupId 'team-twilight'
+            setArtifactId 'crossdimcommands'
         }
     }
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            url "https://maven.tamaized.com/releases"
+            credentials {
+                username secrets.getProperty("maven_username")
+                password secrets.getProperty("maven_password")
+            }
         }
     }
+}
+
+task sourceJar(type: Jar, dependsOn: 'classes') {
+    from sourceSets.main.allSource
+    classifier = 'sources'
 }
