@@ -16,6 +16,6 @@ Small mod that allows "weather" commands to be used from any dimension and prope
 [[dependencies.crossdimcommands]]
     modId="forge"
     mandatory=true
-    versionRange="[40.0.2,)"
+    versionRange="[41.0.2,)"
     ordering="NONE"
     side="BOTH"
