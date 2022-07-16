@@ -4,6 +4,7 @@ Small mod that allows "weather" commands to be used from any dimension and prope
 To add this to your project, add this to your build.gradle
 
 
+```
 repositories {
     maven {
         url = "https://maven.tamaized.com/releases"
@@ -13,3 +14,4 @@ repositories {
 dependencies {
     implementation fg.deobf("team-twilight:crossdimcommands:{version}")
 }
+```
