@@ -1,5 +1,5 @@
 # CrossDimCommands
-https://www.curseforge.com/minecraft/mc-mods/cross-dim-commands
+[![Curseforge](http://cf.way2muchnoise.eu/full_640655_downloads.svg)](https://minecraft.curseforge.com/projects/cross-dim-commands) [![Curseforge](http://cf.way2muchnoise.eu/versions/For%20MC_640655_all.svg)](https://minecraft.curseforge.com/projects/cross-dim-commands)
 
 Small mod that allows "weather" commands to be used from any dimension and properly translates coordinates inputted into the "worldborder center" command.
 
