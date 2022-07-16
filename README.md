@@ -12,6 +12,6 @@ repositories {
 }
 
 dependencies {
-    implementation fg.deobf("team-twilight:crossdimcommands:{version}")
+    runtimeOnly fg.deobf("team-twilight:crossdimcommands:{version}")
 }
 ```
