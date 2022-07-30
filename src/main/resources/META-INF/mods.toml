@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[37,)"
+loaderVersion="[36,)"
 issueTrackerURL="https://github.com/TeamTwilight/crossdimcommands/issues"
 license="LGPL 2.1"
 
@@ -16,6 +16,6 @@ Small mod that allows "weather" commands to be used from any dimension and prope
 [[dependencies.crossdimcommands]]
     modId="forge"
     mandatory=true
-    versionRange="[37.1.0,)"
+    versionRange="[36.2.0,)"
     ordering="NONE"
     side="BOTH"
