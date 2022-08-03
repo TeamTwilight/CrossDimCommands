@@ -37,9 +37,15 @@ public class CrossDimCommands {
         if (sourceStack != null && !sourceStack.getLevel().dimensionType().equalTo(sourceStack.getServer().registryAccess().dimensionTypes().getOrThrow(DimensionType.OVERWORLD_LOCATION))) {
             if ((command[0].equals("/weather") || command[0].equals("weather"))) {
                 switch (command[1]) {
-                    case "clear" -> sourceStack.getLevel().getServer().overworld().setWeatherParameters(6000, 0, false, false);
-                    case "rain" -> sourceStack.getLevel().getServer().overworld().setWeatherParameters(0, 6000, true, false);
-                    case "thunder" -> sourceStack.getLevel().getServer().overworld().setWeatherParameters(0, 6000, true, true);
+                    case "clear":
+                        sourceStack.getLevel().getServer().overworld().setWeatherParameters(6000, 0, false, false);
+                        break;
+                    case "rain":
+                        sourceStack.getLevel().getServer().overworld().setWeatherParameters(0, 6000, true, false);
+                        break;
+                    case "thunder":
+                        sourceStack.getLevel().getServer().overworld().setWeatherParameters(0, 6000, true, true);
+                        break;
                 }
             } else if (command[0].equals("/worldborder") || command[0].equals("worldborder")) {
                 ParseResults<CommandSource> newParseResults = new ParseResults<CommandSource>(parseResults.getContext().withSource(parseResults.getContext().getSource().withLevel(sourceStack.getLevel().getServer().overworld())), parseResults.getReader(), parseResults.getExceptions());
