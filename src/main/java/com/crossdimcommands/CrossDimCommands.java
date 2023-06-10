@@ -2,10 +2,9 @@ package com.crossdimcommands;
 
 import com.mojang.brigadier.ParseResults;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import com.mojang.logging.LogUtils;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.arguments.coordinates.Vec2Argument;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.commands.WorldBorderCommand;
 import net.minecraft.tags.TagKey;
@@ -14,7 +13,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CommandEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.slf4j.Logger;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -23,14 +21,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @Mod.EventBusSubscriber(modid = CrossDimCommands.MOD_ID)
 public class CrossDimCommands {
     public static final String MOD_ID = "crossdimcommands";
-    public static final Logger LOGGER = LogUtils.getLogger();
 
     public CrossDimCommands() {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    public static final TagKey<DimensionType> WEATHER_COMMAND_BLACKLIST = TagKey.create(Registry.DIMENSION_TYPE_REGISTRY, new ResourceLocation(MOD_ID, "weather_command_blacklist"));
-    public static final TagKey<DimensionType> WORLDBORDER_COMMAND_BLACKLIST = TagKey.create(Registry.DIMENSION_TYPE_REGISTRY, new ResourceLocation(MOD_ID, "worldborder_command_blacklist"));
+    public static final TagKey<DimensionType> WEATHER_COMMAND_BLACKLIST = TagKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(MOD_ID, "weather_command_blacklist"));
+    public static final TagKey<DimensionType> WORLDBORDER_COMMAND_BLACKLIST = TagKey.create(Registries.DIMENSION_TYPE, new ResourceLocation(MOD_ID, "worldborder_command_blacklist"));
 
     @SubscribeEvent
     public static void weatherCommandListener(CommandEvent event) {
